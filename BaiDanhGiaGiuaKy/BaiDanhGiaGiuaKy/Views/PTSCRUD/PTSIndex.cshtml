@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BaiDanhGiaGiuaKy.Models.PTSProduct>
+
+@{
+    ViewBag.Title = "PTSIndex";
+}
+
+<h2>PTSIndex: show list product</h2>
+
+<p>
+    @Html.ActionLink("Create New", "PTSCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PTSName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTSImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTSQuanlity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTSPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTSIssActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var ptsitem in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => ptsitem.PTSName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => ptsitem.PTSImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => ptsitem.PTSQuanlity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => ptsitem.PTSPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => ptsitem.PTSIssActive)
+        </td>
+        <td>
+            @Html.ActionLink("PTSEdit", "PTSEdit", new { id= ptsitem.PTSID }) |
+            @Html.ActionLink("PTSDetails", "PTSDetails", new { id= ptsitem.PTSID }) |
+            @Html.ActionLink("PTSDelete", "PTSDelete", new { id= ptsitem.PTSID })
+        </td>
+    </tr>
+}
+
+</table>
